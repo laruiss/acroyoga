@@ -1,12 +1,13 @@
 import Fastify from 'fastify'
+import pkg from './package.json' assert { type: 'json' }
 
 const fastify = Fastify({
   logger: true
 })
 
 // Declare a route
-fastify.get('/', async (request, reply) => {
-  return { hello: 'world' }
+fastify.get('/api/version', async (request, reply) => {
+  return pkg.version
 })
 
 /**
