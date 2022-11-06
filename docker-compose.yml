@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:15.0-alpine
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-password}
+      - POSTGRES_USER=${POSTGRES_USER:-stan}
+      - POSTGRES_DB=${POSTGRES_DB:-acroyoga}
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    environment:
+      - ADMINER_DEFAULT_DRIVER=pgsql
+      - ADMINER_DEFAULT_SERVER=db
+      - ADMINER_DEFAULT_USERNAME=stan
+      - ADMINER_DEFAULT_DB=acroyoga
+    ports:
+      - 8080:8080
