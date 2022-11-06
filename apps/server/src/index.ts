@@ -1,9 +1,6 @@
-import Fastify from 'fastify'
 import pkg from './package.json' assert { type: 'json' }
-
-const fastify = Fastify({
-  logger: true
-})
+import db from './models/acro-graph.json' assert { type: 'json' }
+import { fastify } from './server.js'
 
 // Declare a route
 fastify.get('/api/version', async (request, reply) => {

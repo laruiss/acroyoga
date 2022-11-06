@@ -6,8 +6,8 @@
   "workspaces": [
     "apps/client",
     "apps/server",
-    "packages/shared-utils",
-    "packages/shared-types"
+    "packages/acroyoga-shared-utils",
+    "packages/acroyoga-shared-types"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

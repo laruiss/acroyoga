@@ -2,19 +2,20 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true
+    node: true,
   },
   extends: [
-    'standard'
+    'standard',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: [
-    '@typescript-eslint'
+    '@typescript-eslint',
   ],
   rules: {
-  }
+    'comma-dangle': [2, 'always-multiline'],
+  },
 }

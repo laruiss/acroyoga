@@ -6,16 +6,20 @@
   "type": "module",
   "scripts": {
     "test": "vitest",
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/index.ts",
+    "db": "json-server -p 3005 src/models/acro-graph.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fastify": "^4.9.2"
+    "fastify": "^4.9.2",
+    "json-server": "^0.17.1",
+    "pg": "^8.8.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",
+    "sequelize": "^6.25.4",
     "vite-node": "^0.24.5"
   }
 }

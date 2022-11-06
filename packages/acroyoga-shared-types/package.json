@@ -1,0 +1,10 @@
+{
+  "name": "@laruiss/acroyoga-shared-types",
+  "version": "1.0.0",
+  "description": "Shared type definitions between client and server",
+  "types": "./types/index.d.ts",
+  "scripts": {
+  },
+  "author": "",
+  "license": "ISC"
+}
