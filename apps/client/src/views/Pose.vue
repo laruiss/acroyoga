@@ -17,9 +17,9 @@ onMounted(async () => {
   update()
 })
 const update = () => {
-  pose.value = allPoses.value.find(({ id }) => id === props.id) || {}
-  nextPoses.value = allLinks.value.filter((pose: Pose) => pose.source === props.id).map(({ target }) => allPoses.value.find(({ id }) => id === target))
-  previousPoses.value = allLinks.value.filter((pose: Pose) => pose.target === props.id).map(({ source }) => allPoses.value.find(({ id }) => id === source))
+  pose.value = allPoses.value.find(({ id }) => id === +props.id) || {}
+  nextPoses.value = allLinks.value.filter((pose: Pose) => pose.source === +props.id).map(({ target }) => allPoses.value.find(({ id }) => id === target))
+  previousPoses.value = allLinks.value.filter((pose: Pose) => pose.target === +props.id).map(({ source }) => allPoses.value.find(({ id }) => id === source))
 }
 
 watch(() => props.id, update)
@@ -37,7 +37,12 @@ watch(() => props.id, update)
         class="inline-block  i-fa-arrow-left"
       />
       <h3 class="text-3xl  text-center  px-6">
-        {{ pose.Nom }} <span class="block text-lg">({{ pose.id }})</span>
+        {{ pose.french_name || pose.name }}
+        <span
+          v-if="!pose.french_name"
+        >
+          ({{ pose.name }})
+        </span>
       </h3>
       <router-link
         to="/poses"
@@ -48,19 +53,19 @@ watch(() => props.id, update)
     <div class="flex  justify-between  flex-wrap">
       <div class="w-flex-1/2  flex-grow">
         <p v-if="pose.description">
-          Précisions : {{ pose.description }}
+          Description : {{ pose.description }}
         </p>
         <div>
           <h4 class="inline-block">
             Position voltigeur·se :
           </h4>
-          {{ pose.voltigeur }}
+          {{ pose.flyer }}
         </div>
         <div>
           <h4 class="inline-block">
             Position porteur·se :
           </h4>
-          {{ pose.porteur }}
+          {{ pose.base }}
         </div>
         <div
           v-if="pose.img"
@@ -68,8 +73,8 @@ watch(() => props.id, update)
         >
           <img
             :src="pose.img"
-            :title="`Photo de : ${pose.Nom}`"
-            :alt="`Photo de : ${pose.Nom}`"
+            :title="`Photo de : ${pose.french_name || pose.name}`"
+            :alt="`Photo de : ${pose.french_name || pose.name}`"
             class="image"
           >
         </div>
@@ -82,7 +87,7 @@ watch(() => props.id, update)
         <ul>
           <li v-for="pose of previousPoses">
             <router-link :to="`/poses/${pose.id}`">
-              {{ pose.id }}
+              {{ pose.french_name || pose.name }}
             </router-link>
           </li>
         </ul>
@@ -92,7 +97,7 @@ watch(() => props.id, update)
         <ul>
           <li v-for="pose of nextPoses">
             <router-link :to="`/poses/${pose.id}`">
-              {{ pose.id }}
+              {{ pose.french_name || pose.name }}
             </router-link>
           </li>
         </ul>
@@ -102,9 +107,13 @@ watch(() => props.id, update)
 </template>
 
 <style scoped>
+.img {
+  max-width: 400px;
+}
 .image {
   flex-basis: 400px;
   max-width: 70vw;
+  flex-shrink: 0;
 }
 
 .w-flex-1\/2 {

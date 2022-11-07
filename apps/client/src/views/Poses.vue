@@ -1,11 +1,11 @@
 <script setup>
 import { onMounted, reactive } from 'vue'
 
-const figures = reactive([])
+const poses = reactive([])
 
 onMounted(async () => {
-  figures.length = 0
-  Object.assign(figures, await fetch('/api/nodes').then(res => res.json()))
+  poses.length = 0
+  Object.assign(poses, await fetch('/api/nodes').then(res => res.json()))
 })
 </script>
 
@@ -18,23 +18,23 @@ onMounted(async () => {
 
   <ul class="columns-x">
     <li
-      v-for="figure of figures"
-      :key="figure.id"
+      v-for="pose of poses"
+      :key="pose.id"
     >
       <router-link
-        :to="`/poses/${figure.id}`"
+        :to="`/poses/${pose.id}`"
         flex
         items-center
         gap-2
       >
         <img
-          v-if="figure.img"
-          :src="figure.img"
-          :title="`Photo de : ${figure.Nom}`"
-          :alt="`Photo de : ${figure.Nom}`"
+          v-if="pose.img"
+          :src="pose.img"
+          :title="`Photo de : ${pose.french_name || pose.name}`"
+          :alt="`Photo de : ${pose.french_name || pose.name}`"
           width="40"
         >
-        <span>{{ figure.id }}</span>
+        <span>{{ pose.french_name || pose.name }}</span>
       </router-link>
     </li>
   </ul>
