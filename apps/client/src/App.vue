@@ -3,7 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
+  <header class="header">
     <div class="wrapper">
       <nav>
         <RouterLink to="/">
@@ -25,9 +25,14 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
-header {
+.header {
   line-height: 1.5;
   max-height: 100vh;
+  margin-bottom: 2rem;
+
+  @media screen and (max-width: 768px) {
+    padding-inline: 1rem;
+  }
 }
 
 nav {

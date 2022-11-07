@@ -45,8 +45,8 @@ watch(() => props.id, update)
       />
     </header>
 
-    <div class="flex  justify-between">
-      <div>
+    <div class="flex  justify-between  flex-wrap">
+      <div class="w-flex-1/2  flex-grow">
         <p v-if="pose.description">
           Précisions : {{ pose.description }}
         </p>
@@ -74,6 +74,7 @@ watch(() => props.id, update)
           >
         </div>
       </div>
+
       <footer>
         <h4 class="mt-8">
           Comment arriver là :
@@ -102,6 +103,11 @@ watch(() => props.id, update)
 
 <style scoped>
 .image {
-  max-width: 80vh;
+  flex-basis: 400px;
+  max-width: 70vw;
+}
+
+.w-flex-1\/2 {
+  flex-basis: 34%;
 }
 </style>
