@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "vitest",
-    "dev": "nodemon src/index.ts",
-    "db": "json-server -p 3005 src/models/acro-graph.json"
+    "start": "nodemon src/index.ts",
+    "dev": "json-server -p 3005 src/models/acro-graph.json"
   },
   "keywords": [],
   "author": "",
