@@ -1,12 +1,22 @@
 # acroyoga-client
 
-This template should help get you started developing with Vue 3 in Vite.
+Projet fullstack pour voir des figures et créer des enchaînements d’acroyoga.
 
-## Recommended IDE Setup
+## Configuration minimale pour faire tourner le projet
+
+- [Node.js v18+](https://nodejs.org/en/)
+- npm v8+
+
+### Configuration recommandée
+
+- [@anfu/ni](https://github.com/antfu/ni) (`npm i -g @antfu/ni`)
+- [Volta](https://volta.sh) (`curl https://get.volta.sh | $(basename $SHELL)`)
+
+## Configuration recommandée pour l’édition
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Type Support for `.vue` Imports in TS
+## Support de TS dans les fichiers `.vue`
 
 TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
@@ -17,35 +27,35 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
     2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
-## Customize configuration
+## Personnaliser la configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Cf. [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## Installation des dépendances
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Compilation et Hot-Reload pour le Développement
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Type-Checking, Compilation et Minification pour la Production
 
 ```sh
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### Lancer les Tests Unitaires avec [Vitest](https://vitest.dev/)
 
 ```sh
 npm run test:unit
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Lint avec [ESLint](https://eslint.org/)
 
 ```sh
 npm run lint
